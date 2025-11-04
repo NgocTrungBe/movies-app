@@ -1,0 +1,65 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-height: #{$nav-height};
+  --nav-height-scroll: #{$nav-height-scroll};
+
+  --breakpoint-mobile: #{$breakpoint-mobile};
+  --breakpoint-tablet: #{$breakpoint-tablet};
+  --breakpoint-desktop: #{$breakpoint-desktop};
+
+  --toggle-width: #{$toggle-width};
+  --toggle-height: #{$toggle-height};
+  --toggle-circle-width: #{$toggle-circle-width};
+  --toggle-circle-height: #{$toggle-circle-height};
+  --toggle-padding: #{$toggle-padding};
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+
+  @include desktop {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.movies-app {
+  padding-top: var(--nav-height);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.shiba {
+  height: 1000px;
+}

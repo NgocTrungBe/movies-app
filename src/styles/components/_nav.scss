@@ -1,0 +1,95 @@
+@use "../mixins";
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1.7143rem;
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  transition: all 0.3s;
+  z-index: 100;
+  .logo {
+    font-size: 1.7143rem;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  &.scroll-up,
+  &.scroll-down {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  &.scroll-up {
+    height: var(--nav-height-scroll);
+  }
+  &.scroll-down {
+    top: calc(var(--nav-height) * -1);
+  }
+
+  @include mixins.desktop {
+    padding: 0 6.25rem;
+  }
+}
+
+.toggle-label {
+  display: block;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  position: relative;
+  background: var(--primary-color);
+  border-radius: 100px;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  .toggle-button {
+    display: block;
+    width: var(--toggle-circle-width);
+    height: var(--toggle-circle-height);
+    position: absolute;
+    top: 50%;
+    left: var(--toggle-padding);
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background: #ffffff;
+    transition: all ease-in-out 0.3s;
+    z-index: 10;
+  }
+
+  .toggle-input {
+    display: none;
+    &:checked ~ .toggle-button {
+      transform: translateX(
+          calc(
+            var(--toggle-width) - var(--toggle-circle-width) -
+              calc(var(--toggle-padding) * 2)
+          )
+        )
+        translateY(-50%);
+    }
+  }
+
+  .toggle-text {
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    transition: opacity 0.6s;
+    opacity: 0;
+    color: #ffffff;
+    &.dark {
+      opacity: 1;
+    }
+    &.light {
+      left: auto;
+      right: 12%;
+      opacity: 1;
+    }
+  }
+}

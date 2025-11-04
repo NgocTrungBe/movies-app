@@ -2,6 +2,23 @@
 // Breakpoints
 // =======================
 
-$breakpoint-mobile: 480px;
+$breakpoint-mobile: 640px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
+
+// =======================
+// Navbar Height
+// =======================
+
+$nav-height: 80px;
+$nav-height-scroll: 60px;
+
+// =======================
+// Toggle Width and Height
+// =======================
+
+$toggle-width: 80px;
+$toggle-height: 34px;
+$toggle-circle-width: 28px;
+$toggle-circle-height: 28px;
+$toggle-padding: 4px;

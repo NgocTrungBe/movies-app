@@ -6,11 +6,7 @@ import {
   searchMovies,
 } from "../services/movieService";
 
-export const useMovies = (
-  type: MovieType,
-  page: number = 1,
-  query: string = ""
-) => {
+const useMovies = (type: MovieType, page: number = 1, query: string = "") => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | null>(null);
@@ -44,3 +40,5 @@ export const useMovies = (
 
   return { movies, loading, error };
 };
+
+export default useMovies;
