@@ -8,11 +8,12 @@ import type { SegmentType } from "../types/segment";
 import MovieGridView from "../components/MovieGridView ";
 import { NoData } from "../components/NoData";
 import { ErrorState } from "../components/ErrrorState";
+import Loading from "../components/Loading";
 
 const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("now_playing");
   const [viewMode, setViewMode] = useState<string>("list");
-  const { movies, error } = useMovies(activeTab as MovieType);
+  const { movies, loading, error } = useMovies(activeTab as MovieType);
   const handleChangeTab = (type: string) => {
     setActiveTab(type as MovieType);
   };
@@ -39,7 +40,9 @@ const Home: React.FC = () => {
         )}
 
         <div className="movie-area">
-          {error ? (
+          {loading ? (
+            <Loading />
+          ) : error ? (
             <ErrorState message={error.status_message} />
           ) : movies.length === 0 ? (
             <NoData />
