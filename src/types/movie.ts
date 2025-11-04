@@ -67,3 +67,5 @@ export interface ErrorResponse {
   status_code: number;
   status_message: string;
 }
+
+export type MovieType = "now_playing" | 'top_related' | 'search'
