@@ -1,4 +1,4 @@
-@use "../mixins";
+@use "../mixins" as *;
 
 .nav {
   display: flex;
@@ -10,9 +10,12 @@
   position: fixed;
   top: 0;
   left: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   background-color: var(--bg-color);
   transition: all 0.3s;
-  z-index: 100;
+  opacity: 1;
+  z-index: 9900;
   .logo {
     font-size: 1.7143rem;
     font-weight: bold;
@@ -21,7 +24,7 @@
 
   &.scroll-up,
   &.scroll-down {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
   }
   &.scroll-up {
     height: var(--nav-height-scroll);
@@ -30,7 +33,7 @@
     top: calc(var(--nav-height) * -1);
   }
 
-  @include mixins.desktop {
+  @include desktop {
     padding: 0 6.25rem;
   }
 }

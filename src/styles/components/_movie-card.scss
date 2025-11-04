@@ -1,0 +1,84 @@
+@use "../mixins" as *;
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  width: 280px;
+  margin: 0 10px;
+  flex: 0 0 calc(50% - 20px);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  @include tablet {
+    flex: 0 0 calc(calc(100% / 4) - 20px);
+  }
+
+  @include desktop {
+    flex: 0 0 calc(20% - 20px);
+  }
+}
+.movie-poster {
+  flex: 0 0 70%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(188, 186, 186);
+  img {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out 0.3s;
+    transform: scale(1);
+  }
+  &:hover img {
+    transform: scale(1.2);
+  }
+}
+
+.movie-info {
+  flex: 1;
+  padding: 8px;
+  color: #000000;
+}
+
+.movie-title {
+  font-size: 1rem;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.movie-released-date {
+  margin-top: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(61, 60, 60);
+}
+
+.poster-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  background-image: linear-gradient(90deg, #e0e0e0, #f0f0f0, #e0e0e0);
+  background-repeat: no-repeat;
+  background-size: 200px 100%;
+  animation: shimmer 3s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}

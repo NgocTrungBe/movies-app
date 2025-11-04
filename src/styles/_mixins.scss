@@ -1,17 +1,13 @@
 @use "./variables" as *;
 
-@mixin mobile {
-  @media (max-width: &breakpoint-mobile) {
-    @content;
-  }
-}
-
+// Tablet: 641px → 1023px
 @mixin tablet {
-  @media (min-width: $breakpoint-tablet) {
+  @media (min-width: $breakpoint-mobile) {
     @content;
   }
 }
 
+// Desktop: ≥1024px
 @mixin desktop {
   @media (min-width: $breakpoint-desktop) {
     @content;

@@ -16,12 +16,14 @@ function App() {
       <header>
         <Nav />
       </header>
-      <main className="movies-app container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movie/:id" element={<MovieDetail />} />
-          <Route path="*" element={<>Not found!</>} />
-        </Routes>
+      <main className="movies-app">
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/movie/:id" element={<MovieDetail />} />
+            <Route path="*" element={<>Not found!</>} />
+          </Routes>
+        </div>
       </main>
     </BrowserRouter>
   );

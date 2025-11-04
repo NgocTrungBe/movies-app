@@ -1,0 +1,22 @@
+.segmented-control {
+  border: 1px dashed var(--primary-color);
+  display: flex;
+  align-items: center;
+  .option {
+    width: 50px;
+    height: 25px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: #000000;
+    transition: all ease-in-out 0.3s;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+    &.active {
+      color: white;
+      background: var(--primary-color);
+    }
+  }
+}

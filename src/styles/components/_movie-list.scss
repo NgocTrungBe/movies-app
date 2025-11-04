@@ -1,0 +1,17 @@
+.movie-list-view {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  margin: 0 -10px;
+  padding: 20px 0;
+}
+
+.movie-grid-view {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  padding: 20px 0;
+  gap: 24px 0;
+}

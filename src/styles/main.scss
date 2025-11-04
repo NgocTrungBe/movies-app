@@ -4,3 +4,9 @@
 @use "./global" as *;
 
 @use "./components/nav";
+@use "./components/tab";
+@use "./components/movie-list";
+@use "./components/movie-card";
+@use "./components/segmented-control";
+@use "./components/error";
+@use "./pages/home";
