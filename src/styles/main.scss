@@ -10,5 +10,6 @@
 @use "./components/segmented-control";
 @use "./components/error";
 @use "./components/loading";
-
+@use "./components/search";
 @use "./pages/home";
+@use "./pages/movie-detail";

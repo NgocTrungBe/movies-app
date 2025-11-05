@@ -5,9 +5,7 @@ interface Props {
   message?: string;
 }
 
-export const NoData: React.FC<Props> = ({
-  message = "No movies to display!",
-}) => (
+const NoData: React.FC<Props> = ({ message = "No movies to display!" }) => (
   <div className="error-wrapper">
     <div className="error-content">
       <img src={noDataImg} alt="No movies illustration" />
@@ -15,3 +13,5 @@ export const NoData: React.FC<Props> = ({
     </div>
   </div>
 );
+
+export default NoData;

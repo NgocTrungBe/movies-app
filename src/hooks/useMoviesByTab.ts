@@ -3,10 +3,9 @@ import type { ErrorResponse, Movie, MovieType } from "../types/movie";
 import {
   fetchNowPlayingMovies,
   fetchTopRatedMovies,
-  searchMovies,
 } from "../services/movieService";
 
-const useMovies = (type: MovieType, page: number = 1, query: string = "") => {
+const useMoviesByTab = (type: MovieType, page: number = 1) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | null>(null);
@@ -16,15 +15,11 @@ const useMovies = (type: MovieType, page: number = 1, query: string = "") => {
       setLoading(true);
       setError(null);
       try {
-        let data;
-        if (query) {
-          data = await searchMovies(query, page);
-        } else {
-          data =
-            type === "now_playing"
-              ? await fetchNowPlayingMovies(page)
-              : await fetchTopRatedMovies(page);
-        }
+        const data =
+          type === "now_playing"
+            ? await fetchNowPlayingMovies(page)
+            : await fetchTopRatedMovies(page);
+
         setMovies((prev) =>
           page === 1 ? data.results : [...prev, ...data.results]
         );
@@ -36,9 +31,9 @@ const useMovies = (type: MovieType, page: number = 1, query: string = "") => {
     };
 
     loadMovies();
-  }, [type, page, query]);
+  }, [type, page]);
 
   return { movies, loading, error };
 };
 
-export default useMovies;
+export default useMoviesByTab;

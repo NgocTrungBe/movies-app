@@ -34,7 +34,7 @@ export const fetchTopRatedMovies = async (page = 1): Promise<MovieResponse> => {
   return handleResponse(await fetch(url, options));
 };
 
-export const fetchMovieDetails = async (id: number): Promise<MovieResponse> => {
+export const fetchMovieDetails = async (id: number) => {
   const url = `${BASE_URL}/movie/${id}?language=en-US`;
   return handleResponse(await fetch(url, options));
 };
@@ -51,5 +51,5 @@ export const searchMovies = async (
   const url = `${BASE_URL}/search/movie?language=en-US&query=${encodeURIComponent(
     query
   )}&page=${page}`;
-  return handleResponse(await fetch(url));
+  return handleResponse(await fetch(url, options));
 };

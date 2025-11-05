@@ -5,7 +5,7 @@ interface Props {
   message?: string;
 }
 
-export const ErrorState: React.FC<Props> = ({
+const ErrorState: React.FC<Props> = ({
   message = "Failed to load movies. Please try again later.",
 }) => (
   <div className="error-wrapper">
@@ -15,3 +15,5 @@ export const ErrorState: React.FC<Props> = ({
     </div>
   </div>
 );
+
+export default ErrorState;

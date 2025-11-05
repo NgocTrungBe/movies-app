@@ -2,18 +2,35 @@ import { useState } from "react";
 import Tab from "../components/Tab";
 import type { MovieType } from "../types/movie";
 import MovieListView from "../components/MovieListView";
-import { useMovies } from "../hooks";
 import SegmentedControl from "../components/SegmentedControl";
 import type { SegmentType } from "../types/segment";
 import MovieGridView from "../components/MovieGridView ";
-import { NoData } from "../components/NoData";
-import { ErrorState } from "../components/ErrrorState";
+import NoData from "../components/NoData";
+import ErrorState from "../components/ErrrorState";
 import Loading from "../components/Loading";
 
+import { useMoviesByTab } from "../hooks";
+
 const Home: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("now_playing");
-  const [viewMode, setViewMode] = useState<string>("list");
-  const { movies, loading, error } = useMovies(activeTab as MovieType);
+  const [activeTab, setActiveTab] = useState<MovieType>("now_playing");
+  const [viewMode, setViewMode] = useState<SegmentType>("list");
+  // const [searchQuery, setSearchQuery] = useState<string>("");
+  const {
+    movies: tabMovies,
+    loading: tabLoading,
+    error: tabError,
+  } = useMoviesByTab(activeTab as MovieType);
+
+  // Temporarily disabling search functionality.
+  // Will re-enable useMoviesBySearch hook to handle search queries later.
+
+  // const {
+  //   movies: searchMovies,
+  //   loading: searchLoading,
+  //   error: searchError,
+  //   onSeachMovies,
+  // } = useMoviesBySearch();
+
   const handleChangeTab = (type: string) => {
     setActiveTab(type as MovieType);
   };
@@ -21,6 +38,12 @@ const Home: React.FC = () => {
   const handleChangeViewMode = (mode: string) => {
     setViewMode(mode as SegmentType);
   };
+
+  // TODO: Add searchQuery logic to toggle between tabMovies and searchMovies
+  const movies = tabMovies;
+  const loading = tabLoading;
+  const error = tabError;
+  //
 
   return (
     <div className="home">
@@ -31,6 +54,14 @@ const Home: React.FC = () => {
         </div>
         {movies.length > 0 && (
           <div className="control">
+            {/* TODO: Complete search functionality (debounce, API call) */}
+            {/* <Search
+              value={searchQuery}
+              onClick={() => {}}
+              // onClick={onSeachMovies}
+              onChange={(query: string) => setSearchQuery(query)}
+            /> */}
+
             <SegmentedControl
               options={["list", "grid"]}
               selected={viewMode}
