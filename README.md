@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# 🎬 Movies App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive movie browser built with **React + TypeScript** using **The Movie Database (TMDb) API**.  
+Users can explore _Now Playing_ and _Top Rated_ movies, search for specific titles, and view detailed movie information — all with asynchronous image loading and a polished UI built entirely with SCSS (no UI libraries).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## React Compiler
+🚀 **Try it here:** [https://movies-app-chi-lac.vercel.app/](https://movies-app-chi-lac.vercel.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features & User Stories
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✅ Required
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [x] User can view a list of movies currently playing in theaters.
+- [x] Poster images load asynchronously.
+- [x] Add a tab bar for **Now Playing** and **Top Rated** movies.
+- [ ] Add a search bar.
+- [x] User can view movie details by tapping on a cell.
+- [x] User sees a loading state while waiting for API response.
+- [x] User sees an error message when there is a network error.
+- [x] Simple responsive layout.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🌟 Optional
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [x] Implement segmented control to switch between **list view** and **grid view**.
+- [ ] Fade-in animation for images.
+- [x] Lazy load movie posters.
+- [x] Custom highlight and selection effects for movie cards.
+- [ ] Skeleton loading for smoother UX.
+- [x] Enhanced responsiveness for mobile, tablet, and desktop.
+
+### 🚀 Additional Features
+
+- 🌙 **Dark mode** toggle for better viewing experience.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React 18** + **TypeScript**
+- **Vite** build tool
+- **SCSS** for custom styling (no UI frameworks)
+- **TMDb API** for movie data:
+  - GET https://api.themoviedb.org/3/movie/now_playing
+  - GET https://api.themoviedb.org/3/movie/top_related
+  - GET https://api.themoviedb.org/3/movie/{movie_id}
+  - GET https://api.themoviedb.org/3/search/movie
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+```bash
+# 1. Clone the repository
+git clone git@github.com:NgocTrungBe/movies-app.git
+cd movies-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Create a .env file and add your TMDb read access token
+# (get one from https://www.themoviedb.org/settings/api)
+VITE_TMDB_ACCESS_TOKEN=your_read_access_token
+
+# 4. Start the development server
+npm run dev
+
+# 5. Open your browser at:
+http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📦 Repository
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+GitHub: https://github.com/NgocTrungBe/movies-app
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📜 License
+
+Copyright [2016] [Ngọc Trung Bế]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
