@@ -7,7 +7,10 @@ Users can explore _Now Playing_ and _Top Rated_ movies, search for specific titl
 
 ## 🌐 Live Demo
 
-🚀 **Try it here:** [https://movies-app-chi-lac.vercel.app/](https://movies-app-chi-lac.vercel.app/)
+➡️ **[https://movies-app-git-main-ngoctrungbes-projects.vercel.app/](https://movies-app-git-main-ngoctrungbes-projects.vercel.app/)**
+
+> Note: If the above link does not work, you may also try the previous temporary deployment:  
+> [https://movies-app-chi-lac.vercel.app/](https://movies-app-chi-lac.vercel.app/)
 
 ---
 
